@@ -1,26 +1,27 @@
+// server.js
+
 import express from 'express';
-import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import teacherRoutes from './routes/teacherRoutes.js';
 import courseRoutes from './routes/courseRoutes.js';
 
-dotenv.config()
+// dotenv.config(); // Comment this out for Azure deployment
 
-connectDB()
+connectDB();
 
-const app = express()
+const app = express();
 
-app.use(express.json()); //middleware
+app.use(express.json()); // Middleware
 
-app.get('/', (req,res) => {
-	res.send("Let's goo!!");
+app.get('/', (req, res) => {
+  res.send("Let's go!!");
 });
 
-app.use('/api/teacher', teacherRoutes)
-app.use('/api/course', courseRoutes)
+app.use('/api/teacher', teacherRoutes);
+app.use('/api/course', courseRoutes);
 
-const port = 8000 || process.env.PORT;
+const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
-	console.log(`Listening to port ${port}`);
+  console.log(`Listening to port ${port}`);
 });
