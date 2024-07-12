@@ -22,3 +22,5 @@ Create a .env file in then root and add the following
 
   #### Run backend only
   npm run server
+"# LMS-marn" 
+"# LMS-marn" 
